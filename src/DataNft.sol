@@ -18,6 +18,7 @@ contract DataNFT is ERC721URIStorage, Ownable {
 
     constructor() ERC721("DataNFT", "DNFT") Ownable(msg.sender) {}
 
+
     function mintNFT(
         address recipient, 
         string memory tokenURI_, 
@@ -27,7 +28,7 @@ contract DataNFT is ERC721URIStorage, Ownable {
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
         
-        _mint(recipient, newItemId);
+        _safeMint(recipient, newItemId);
         _setTokenURI(newItemId, tokenURI_);
 
         licenses[newItemId] = License({
@@ -40,4 +41,14 @@ contract DataNFT is ERC721URIStorage, Ownable {
 
         return newItemId;
     }
+
+    function transferNFT(address to, uint256 tokenId) public {
+        require(ownerOf(tokenId) == msg.sender, "You are not the owner of this NFT");
+        _transfer(msg.sender, to, tokenId);
+
+        // Emit Transfer event for frontend to track ownership changes
+        emit Transfer(msg.sender, to, tokenId);
+    }
+
+    
 }
