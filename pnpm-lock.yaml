@@ -1,0 +1,42 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@openzeppelin/contracts':
+        specifier: ^5.2.0
+        version: 5.2.0
+      '@openzeppelin/contracts-upgradeable':
+        specifier: ^5.2.0
+        version: 5.2.0(@openzeppelin/contracts@5.2.0)
+      forge-std:
+        specifier: ^1.1.2
+        version: 1.1.2
+
+packages:
+
+  '@openzeppelin/contracts-upgradeable@5.2.0':
+    resolution: {integrity: sha512-mZIu9oa4tQTlGiOJHk6D3LdJlqFqF6oNOSn6S6UVJtzfs9UsY9/dhMEbAVTwElxUtJnjpf6yA062+oBp+eOyPg==}
+    peerDependencies:
+      '@openzeppelin/contracts': 5.2.0
+
+  '@openzeppelin/contracts@5.2.0':
+    resolution: {integrity: sha512-bxjNie5z89W1Ea0NZLZluFh8PrFNn9DH8DQlujEok2yjsOlraUPKID5p1Wk3qdNbf6XkQ1Os2RvfiHrrXLHWKA==}
+
+  forge-std@1.1.2:
+    resolution: {integrity: sha512-Wfb0iAS9PcfjMKtGpWQw9mXzJxrWD62kJCUqqLcyuI0+VRtJ3j20XembjF3kS20qELYdXft1vD/SPFVWVKMFOw==}
+
+snapshots:
+
+  '@openzeppelin/contracts-upgradeable@5.2.0(@openzeppelin/contracts@5.2.0)':
+    dependencies:
+      '@openzeppelin/contracts': 5.2.0
+
+  '@openzeppelin/contracts@5.2.0': {}
+
+  forge-std@1.1.2: {}
