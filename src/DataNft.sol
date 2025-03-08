@@ -16,14 +16,11 @@ contract DataNFT is ERC721URIStorage, Ownable {
 
     mapping(uint256 => License) public licenses;
 
-    constructor() 
-        ERC721("DataNFT", "DNFT")
-        Ownable(msg.sender) {} // fixed constructor arguments
-
+    constructor() ERC721("DataNFT", "DNFT") Ownable(msg.sender) {}
 
     function mintNFT(
         address recipient, 
-        string memory tokenURI_, // Renamed to fix shadowing, took too long to fix
+        string memory tokenURI_, 
         uint256 validityPeriod, 
         string memory terms
     ) public onlyOwner returns (uint256) {
@@ -38,7 +35,9 @@ contract DataNFT is ERC721URIStorage, Ownable {
             terms: terms
         });
 
+        // emit Transfer event so frontend can detect minting
+        emit Transfer(address(0), recipient, newItemId);
+
         return newItemId;
     }
-
 }
