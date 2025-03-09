@@ -49,6 +49,6 @@ contract DataNFT is ERC721URIStorage, Ownable {
         // Emit Transfer event for frontend to track ownership changes
         emit Transfer(msg.sender, to, tokenId);
     }
-
     
 }
+
